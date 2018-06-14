@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+        $("#git").click(function(){
+          $.get("https://api.github.com/users/pharika31",displayName)
+          function displayName(data) {
+              console.log(data.name);
+              $("#name").append("<h1>"+data.name+"</h1>")
+            }
+
+        })
+
+      })
+  </script>
+</head>
+<body>
+
+  <button name="git" id="git" >Click me to display name!</button>
+    <div id= "name"></div>
+</body>
+</html>
