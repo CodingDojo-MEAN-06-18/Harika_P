@@ -29,7 +29,7 @@ BST.prototype.insertTo = function(rootNode, newNode){
           rootNode.right = newNode;
         }
         else{
-          this.insertTo(rootNode.left, newNode);
+          this.insertTo(rootNode.right, newNode);
         }
       }
 
