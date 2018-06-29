@@ -96,6 +96,14 @@ BST.prototype.postorderHelp = function(resultArr, root){
 
 };
 
+//height of BST
+
+BST.prototype.height = function(root){
+  //max height of LST, RST +1
+  if(root===null){return 0;}
+  return Math.max(this.height(root.left), this.height(root.right))+1;
+}
+
 var first = new BST();
 first.insert(30).insert(10).insert(50).insert(35).insert(5).insert(72);
 var pre = first.preOrder(first.root);
@@ -106,3 +114,6 @@ console.log(first.root);
 console.log(pre);
 console.log(inorder);
 console.log(post);
+
+var height = first.height(first.root);
+console.log(height);
