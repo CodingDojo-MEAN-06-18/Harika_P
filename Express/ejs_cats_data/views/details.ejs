@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <title>Details</title>
+</head>
+<body>
+  <div id ="wrapper">
+    <h1 class="header">Details page for <%= details["name"] %></h1>
+
+    <h2>Favorite food : <%= details["favorite_food"] %></h2>
+    <h2>Age : <%= details["age"] %></h2>
+    <h3>Sleeping spots :
+    <% for (var x in details["sleeping_spots"]) { %>
+     <p><%= details["sleeping_spots"][x] %></p>
+     <%}%>
+   </h3>
+
+  </div>
+</body>
+</html>

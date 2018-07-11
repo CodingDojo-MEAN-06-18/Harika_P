@@ -1,0 +1,46 @@
+*{
+  border:0px;
+  margin: 0px;
+}
+#wrapper{
+  width:970px;
+  height:900px;
+  margin: 0 auto;
+}
+.header{
+  background-color: purple;
+  height:100px;
+  text-align: center;
+
+}
+
+#cats{
+  height:500px;
+  width:900px;
+  display: inline-block;
+}
+
+.sub{
+  height:500px;
+  width:25%;
+  display: inline-block;
+
+}
+img{
+  width: 200px;
+  height:auto;
+}
+h2{
+  background-color: pink;
+  height:100px;
+  text-align: center;
+  margin: 10px;
+  text-align: center;
+}
+h3{
+  background-color: violet;
+  height:200px;
+  text-align: center;
+  margin: 10px;
+  text-align: center;
+}
