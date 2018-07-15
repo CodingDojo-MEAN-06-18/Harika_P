@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo survey</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function(){
+   // triggers the connection event in our server
+   var socket = io.connect();
+   // submit data to the server using emit
+   $('#epic').submit(function(e) {
+     e.preventDefault();
+     socket.emit("posting_form", {
+     });
+   });
+
+   $('#reset').submit(function(e){
+     e.preventDefault();
+     socket.emit("reset_req",{});
+
+   });
+
+   socket.on("counter", function (count){
+     $('#message').html("The button has been pushed " + JSON.stringify(count) + " time(s)");
+   });
+
+   socket.on("reset",function(count){
+     $('#message').html("Button has been pushed "+ JSON.stringify(count) + "times(s)");
+   });
+
+ });
+
+    </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="message"></div>
+    <h2>Push button to update the count!</h2>
+    <form action="" method="post" id="epic" name="epic">
+      <input type="submit" id="submit" value="Push the epic button" />
+    </form>
+    <form action="" method="post" id="reset" name="reset">
+      <input type="submit" id="submit" value="Reset" />
+    </form>
+  </div>
+
+
+</body>
+</html>
