@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo survey</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+
+          var socket = io.connect();
+          $('#green').click(function(e){
+            e.preventDefault();
+            socket.emit("change_color", {
+				  	color: $(this).val()
+                });
+          });
+          $('#blue').click(function(e){
+            e.preventDefault();
+            socket.emit("change_color", {
+				  	color: "blue"
+                });
+          });
+          $('#pink').click(function(e){
+            e.preventDefault();
+            socket.emit("change_color", {
+				  	color: "pink"
+                });
+          });
+          socket.on('new_color', function (data){
+
+               $('body').css("background-color",data.data.color);
+           });
+
+		 });
+
+
+    </script>
+</head>
+<body>
+  <div id="message"></div>
+  <button type="button" name="green" id="green" value="green">Green </button>
+  <button type="button" name="blue" id="blue" value="blue">Blue </button>
+  <button type="button" name="pink" id="pink" value="pink">Pink </button>
+
+
+</body>
+</html>
