@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+  <div id="wrapper">
+    <h1>Welcome to Mongoose dashboard!</h1>
+    <% if (mongooses) { %>
+                    <% for (mongoose of mongooses) { %>
+                        <a href="/mongooses/<%= mongoose.id %>"><h3 class="type">Type: "<%= mongoose.mongoose_type %>"</h3></a>
+                        <h3 class="desc">Description: "<%= mongoose.desc %>"</h3>
+                    <% } %>
+                <% } %>
+  </div>
+</body>
+</html>

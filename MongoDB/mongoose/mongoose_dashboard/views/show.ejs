@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+  <div id="wrapper">
+    <h1><%= mongoose.type %></h1>
+    <div id="details">
+    <% if (mongoose) { %>
+
+                        <h3 class="type">Type: "<%= mongoose.mongoose_type %>"</h3>
+                        <h3 class="desc">Description: "<%= mongoose.desc %>"</h3>
+
+                <% } %>
+                <a href="/">Home</a>
+
+                <form method="post" name="delete" id="delete" action="/mongooses/destroy/<%= mongoose._id %>">
+                  <p>Mongoose Type: <input type="text" name="type" id="type" value="<%= mongoose.mongoose_type %>" readonly/></p>
+                  <p>Description: <input type="text" name="desc" id="desc" value="<%= mongoose.desc %>" readonly/></p>
+                  <p><input type="submit" value="Destroy mongoose!" name="submit" /></p>
+                </form>
+
+    </div>
+  </div>
+</body>
+</html>
